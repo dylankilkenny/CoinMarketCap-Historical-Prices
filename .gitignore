@@ -1,6 +1,6 @@
 # custom
-/bin
-/include
+bin/
+include/
 .DS_Store
 pip-selfcheck.json
 

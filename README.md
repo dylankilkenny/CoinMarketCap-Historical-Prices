@@ -16,12 +16,12 @@ $ pip3 install -r requirements.txt
 To run the script and gather data for all listed cryptocurrencys on coinmarketcap you need to pass the start date and end date in YYYYMMDD format
 
 ```    
-$ python run.py 20170101 20180201
+$ python3 cmc.py 20170101 20180201
 ``` 
 you can also specify a cryptocurrency with a third argument
 
 ```    
-$ python run.py 20170101 20180201 ethereum
+$ python3 cmc.py 20170101 20180201 ethereum
 ``` 
 
 

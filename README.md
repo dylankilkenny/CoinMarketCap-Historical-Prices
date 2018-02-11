@@ -23,5 +23,6 @@ you can also specify a cryptocurrency with a third argument
 ```    
 $ python3 cmc.py 20170101 20180201 ethereum
 ``` 
+The data will be saved to a CSV file
 
 

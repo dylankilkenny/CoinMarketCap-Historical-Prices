@@ -7,8 +7,6 @@ This script scrapes data from the [historical data](https://coinmarketcap.com/cu
 ```
 $ git clone https://github.com/dylankilkenny/CoinMarketCap-Historical-Prices.git
 $ cd CoinMarketCap-Historical-Prices
-$ virtualenv . 
-$ source bin/activate
 $ pip3 install -r requirements.txt
 ```
 

@@ -17,7 +17,7 @@ def CoinNames():
     for i in respJSON:
         names.append(i['id'])
     return names
-    
+
 def gather(startdate, enddate):
     """ Scrape data off cmc"""
 
@@ -25,7 +25,7 @@ def gather(startdate, enddate):
         names = CoinNames()
     else:
         names = [sys.argv[3]]
-    
+
     historicaldata = []
     counter = 1
 
@@ -34,7 +34,7 @@ def gather(startdate, enddate):
         data = r.text
         soup = BeautifulSoup(data, "html.parser")
         table = soup.find('table', attrs={ "class" : "table"})
-        
+
         #Add table header to list
         if len(historicaldata) == 0:
             headers = [header.text for header in table.find_all('th')]
@@ -43,7 +43,7 @@ def gather(startdate, enddate):
         for row in table.find_all('tr'):
             currentrow = [val.text for val in row.find_all('td')]
             if(len(currentrow) != 0):
-                currentrow.insert(0, coin)  
+                currentrow.insert(0, coin)
             historicaldata.append(currentrow)
 
         print("Coin Counter -> " + str(counter), end='\r')
@@ -65,7 +65,7 @@ def Save(headers, rows):
     print("Finished!")
 
 if __name__ == "__main__":
-    
+
     startdate = sys.argv[1]
     enddate = sys.argv[2]
 

@@ -18,16 +18,12 @@ def CoinNames():
         names.append(i['id'])
     return names
 
-def gather(startdate, enddate):
-    """ Scrape data off cmc"""
-
-    if(len(sys.argv) == 3):
-        names = CoinNames()
-    else:
-        names = [sys.argv[3]]
-
+def gather(startdate, enddate, names):
     historicaldata = []
     counter = 1
+
+    if len(names) == 0:
+        names = CoinNames()
 
     for coin in names:
         r  = requests.get("https://coinmarketcap.com/currencies/{0}/historical-data/?start={1}&end={2}".format(coin, startdate, enddate))
@@ -48,6 +44,17 @@ def gather(startdate, enddate):
 
         print("Coin Counter -> " + str(counter), end='\r')
         counter += 1
+    return headers, historicaldata
+
+def _gather(startdate, enddate):
+    """ Scrape data off cmc"""
+
+    if(len(sys.argv) == 3):
+        names = CoinNames()
+    else:
+        names = [sys.argv[3]]
+
+    headers, historicaldata = gather(startdate, enddate, names)
 
     Save(headers, historicaldata)
 
@@ -69,5 +76,5 @@ if __name__ == "__main__":
     startdate = sys.argv[1]
     enddate = sys.argv[2]
 
-    gather(startdate, enddate)
+    _gather(startdate, enddate)
 

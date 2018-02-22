@@ -15,12 +15,12 @@ $ python install_locally.py
 To run the script and gather data for all listed cryptocurrencys on coinmarketcap you need to pass the start date and end date in YYYYMMDD format
 
 ```    
-$ python3 cmc.py 20170101 20180201
+$ python3 crypto_history.py 20170101 20180201
 ``` 
 you can also specify a cryptocurrency with a third argument
 
 ```    
-$ python3 cmc.py 20170101 20180201 ethereum
+$ python3 crypto_history.py 20170101 20180201 ethereum
 ``` 
 The data will be saved to a CSV file
 

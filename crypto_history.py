@@ -7,6 +7,8 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import sys
+from time import sleep
+
 
 def CoinNames():
     """Gets ID's of all coins on cmc"""
@@ -26,6 +28,7 @@ def gather(startdate, enddate, names):
         names = CoinNames()
 
     for coin in names:
+        sleep(10)
         r  = requests.get("https://coinmarketcap.com/currencies/{0}/historical-data/?start={1}&end={2}".format(coin, startdate, enddate))
         data = r.text
         soup = BeautifulSoup(data, "html.parser")
